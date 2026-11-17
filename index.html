@@ -2005,15 +2005,13 @@ function saveAdminEdits(id) {
   showToast("Edits saved in this browser cache. They have not been written to Google Sheets.","success");
 }
 
-async function moderateSubmission(id,action) {
+async function moderateSubmission(id, action) {
   if (!adminUnlocked) {
-    showToast("Admin authentication is required.","error");
+    showToast("Admin authentication is required.", "error");
     return;
   }
-
   const t = allTrainees.find(item => String(item.ID) === String(id));
   if (!t) return;
-
   if (action !== "approve" && action !== "reject") return;
 
   if (action === "approve") {
@@ -2027,36 +2025,41 @@ async function moderateSubmission(id,action) {
   );
   if (!confirmed) return;
 
+  const newStatus = action === "approve" ? "Approved" : "Rejected";
+
   try {
-    /*
-     * Preserves the existing Apps Script GET action contract.
-     * no-cors prevents reading the response; the UI therefore marks the
-     * local copy as changed but cannot independently verify backend success.
-     */
-    await fetch(
-      `${CONFIG.SCRIPT_URL}?action=${action}&id=${encodeURIComponent(id)}`,
-      {method:"GET",mode:"no-cors"}
-    );
+    // 1. Google Sheets (Apps Script) ko live update bhejein
+    await fetch(CONFIG.SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        action: action,
+        ID: t.ID,
+        TraineeID: t.TraineeID,
+        FullName: t.FullName,
+        AssignedSection: t.AssignedSection,
+        Qualifications: t.Qualifications,
+        Skills: t.Skills,
+        Status: newStatus
+      })
+    });
 
-    if (action === "approve") {
-      t.Status = "Approved";
-    } else {
-      allTrainees = allTrainees.filter(item => String(item.ID) !== String(id));
-    }
-
+    // 2. Local UI aur Cache update karein
+    t.Status = newStatus;
     storeCache();
-    selectedPendingId = null;
     refreshDirectoryUI();
     renderAdminQueue();
 
     showToast(
       action === "approve"
-        ? "Approval request sent. Confirm the published status in Google Sheets."
-        : "Rejection request sent. Confirm the change in Google Sheets.",
+        ? "Approved & Synced with Google Sheets!"
+        : "Submission rejected & synced.",
       "success"
     );
-  } catch (error) {
-    showToast("Moderation request could not be sent: " + error.message,"error");
+  } catch (err) {
+    console.error("Sync error:", err);
+    showToast("Failed to sync with Google Sheets. Check connection.", "error");
   }
 }
 
