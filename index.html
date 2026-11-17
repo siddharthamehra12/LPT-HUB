@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061124">
+<meta name="description" content="Library Trainee Portal — Shreenivas Deshpande Library, IIT (BHU) Varanasi. Trainee directory, registration and administration.">
+<title>Library Trainee Portal | Shreenivas Deshpande Library, IIT (BHU) Varanasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy-950:#061124;
+  --navy-900:#0B1E3D;
+  --navy-800:#132C56;
+  --navy-700:#183B70;
+  --blue-700:#1D4ED8;
+  --blue-600:#2563EB;
+  --cyan-500:#0EA5E9;
+  --gold-500:#F59E0B;
+  --gold-400:#FBBF24;
+  --ice-50:#F4F8FD;
+  --ice-100:#EBF3FC;
+  --ice-200:#D6E6FA;
+  --slate-950:#020617;
+  --slate-900:#0F172A;
+  --slate-700:#334155;
+  --slate-600:#475569;
+  --slate-500:#64748B;
+  --slate-400:#94A3B8;
+  --slate-300:#CBD5E1;
+  --slate-200:#E2E8F0;
+  --white:#FFFFFF;
+  --green-600:#16A34A;
+  --red-600:#DC2626;
+  --radius:18px;
+  --shadow:0 12px 32px rgba(11,30,61,.08);
+  --shadow-lg:0 24px 70px rgba(6,17,36,.18);
+  --base-font-scale:100%;
+  --content-width:1280px;
+}
+*{box-sizing:border-box}
+html{font-size:var(--base-font-scale);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ice-50);color:var(--slate-900);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.55;min-height:100vh;
+}
+button,input,select,textarea{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+a{color:inherit}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--gold-500);outline-offset:3px}
+.skip-link{
+  position:absolute;left:12px;top:-60px;z-index:9999;
+  padding:10px 14px;background:white;color:var(--navy-950);
+  border-radius:8px;font-weight:800;
+}
+.skip-link:focus{top:12px}
+.container{width:min(var(--content-width),calc(100% - 40px));margin-inline:auto}
+.display{font-family:"Plus Jakarta Sans",Inter,sans-serif}
+.muted{color:var(--slate-500)}
+.eyebrow{
+  color:var(--blue-700);font-size:.72rem;font-weight:800;
+  letter-spacing:.13em;text-transform:uppercase;
+}
+.section-heading{
+  font-family:"Plus Jakarta Sans",Inter,sans-serif;
+  color:var(--navy-900);font-size:1.45rem;line-height:1.2;
+  font-weight:800;margin:0;
+}
+.section-intro{color:var(--slate-600);font-size:.9rem;margin:.45rem 0 0}
+.btn{
+  border:1px solid transparent;border-radius:10px;padding:10px 15px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none;font-size:.82rem;font-weight:800;transition:.2s ease;
+}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn-primary{background:var(--blue-700);color:white;box-shadow:0 5px 14px #1d4ed833}
+.btn-primary:hover{background:#1742bd;transform:translateY(-1px)}
+.btn-dark{background:var(--navy-900);color:white}
+.btn-dark:hover{background:var(--navy-700)}
+.btn-outline{background:white;border-color:var(--ice-200);color:var(--navy-900)}
+.btn-outline:hover{border-color:var(--blue-700);color:var(--blue-700)}
+.btn-gold{background:var(--gold-500);color:var(--navy-950)}
+.btn-danger{background:#FEE2E2;color:#991B1B;border-color:#FECACA}
+.btn-small{padding:7px 10px;font-size:.74rem}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;border-radius:99px;
+  padding:4px 9px;font-size:.68rem;font-weight:800;white-space:nowrap;
+}
+.pill-live{color:#BBF7D0;background:#064E3B;border:1px solid #34D39955}
+.pill-blue{color:#1D4ED8;background:#DBEAFE}
+.pill-gold{color:#92400E;background:#FEF3C7}
+.pill-muted{color:var(--slate-600);background:var(--ice-100)}
+.card{
+  background:white;border:1px solid var(--ice-200);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+}
+.rule{height:1px;background:var(--ice-200);border:0;margin:20px 0}
+
+/* Utility bar */
+.utility-bar{
+  background:var(--navy-950);color:#DCE7F7;
+  border-bottom:1px solid #24416B;font-size:.72rem;
+}
+.utility-inner{
+  min-height:42px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:7px;
+}
+.utility-left,.utility-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.utility-links{display:flex;gap:14px;flex-wrap:wrap}
+.utility-links a{color:#DCE7F7;text-decoration:none}
+.utility-links a:hover{color:var(--gold-400)}
+.font-tools{display:flex;align-items:center;gap:4px}
+.font-tools button{
+  border:1px solid #405577;background:#10264A;color:white;
+  border-radius:5px;padding:2px 7px;font-size:.68rem;font-weight:800;
+}
+.font-tools button[aria-pressed="true"]{background:var(--blue-700);border-color:#60A5FA}
+
+/* Masthead */
+.masthead{
+  color:white;background:
+    radial-gradient(circle at 82% 15%,#1D4ED833,transparent 28%),
+    linear-gradient(110deg,var(--navy-950),var(--navy-900) 70%,#102D58);
+}
+.masthead-inner{
+  display:flex;align-items:center;gap:18px;padding-block:21px;
+}
+  .crest {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px #0005);
+}
+}
+.masthead-copy{min-width:0}
+.masthead-copy h1{
+  font-family:"Plus Jakarta Sans",Inter,sans-serif;
+  font-size:clamp(1.08rem,2.5vw,1.65rem);
+  line-height:1.22;margin:0;font-weight:800;letter-spacing:-.025em;
+}
+.masthead-copy .hindi{
+  color:#FCDFA0;font-size:clamp(.76rem,1.7vw,.96rem);
+  font-weight:700;margin:0 0 5px;
+}
+.masthead-copy .subline{
+  color:#BFD2EF;font-size:.73rem;margin:6px 0 0;letter-spacing:.04em;
+}
+.masthead-side{margin-left:auto;text-align:right;color:#C7D7EF;font-size:.7rem}
+.masthead-side strong{display:block;color:var(--gold-400);font-size:.8rem}
+
+/* Sticky navigation */
+.main-nav{
+  position:sticky;top:0;z-index:50;background:white;
+  border-bottom:1px solid var(--ice-200);box-shadow:0 5px 18px #0611240b;
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.nav-tabs{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.nav-tab{
+  display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  color:var(--slate-600);font-size:.79rem;font-weight:800;
+  padding:10px 13px;border-radius:9px;border:1px solid transparent;
+}
+.nav-tab:hover{background:var(--ice-50);color:var(--blue-700)}
+.nav-tab.active{background:#EAF1FF;color:var(--blue-700);border-color:#C9DAFF}
+.nav-tab.admin{color:var(--navy-900)}
+.nav-badge{background:#FDE68A;color:#78350F;border-radius:99px;padding:1px 6px;font-size:.64rem}
+.breadcrumb{font-size:.7rem;color:var(--slate-500);padding:12px 0}
+.breadcrumb strong{color:var(--navy-900)}
+/* Original TraineeV4 institutional navigation — restored */
+.navigation-stack {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.institutional-nav {
+  background: var(--navy-900);
+  color: #E2E8F0;
+  border-bottom: 1px solid #29456D;
+  box-shadow: 0 5px 14px rgba(6,17,36,.12);
+}
+
+.institutional-nav-inner {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #64748B var(--navy-900);
+}
+
+.institutional-nav ul {
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.institutional-nav a {
+  min-height: 48px;
+  padding: 13px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #CBD5E1;
+  text-decoration: none;
+  font-size: .76rem;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: background .2s ease, color .2s ease;
+}
+
+.institutional-nav a:hover {
+  color: white;
+  background: rgba(255,255,255,.07);
+}
+
+.institutional-nav a.institutional-active {
+  color: var(--gold-400);
+  background: rgba(245,158,11,.12);
+  border-bottom-color: var(--gold-500);
+}
+
+.institutional-nav .nav-icon {
+  color: #7DD3FC;
+  font-size: .95rem;
+}
+
+.institutional-nav a.institutional-active .nav-icon {
+  color: var(--gold-400);
+}
+
+/* The two bars are kept together in one sticky stack. */
+.navigation-stack .main-nav {
+  position: relative;
+  top: auto;
+  z-index: auto;
+}
+
+@media(max-width:760px) {
+  .institutional-nav a {
+    padding: 12px 11px;
+    font-size: .7rem;
+  }
+}
+
+/* Slideshow */
+.hero-showcase{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:390px;border-radius:24px;background:var(--navy-950);
+  color:white;box-shadow:var(--shadow-lg);
+}
+.hero-slide{
+  position:absolute;inset:0;display:flex;align-items:center;
+  padding:clamp(25px,5vw,62px);opacity:0;visibility:hidden;
+  transform:translateX(22px);
+  transition:opacity .75s cubic-bezier(.22,1,.36,1),
+             transform .85s cubic-bezier(.22,1,.36,1),visibility .75s;
+}
+.hero-slide.active{opacity:1;visibility:visible;transform:translateX(0);z-index:2}
+.hero-slide::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,#061124f2 0%,#0B1E3Dce 48%,#0B1E3D38 100%),
+    var(--slide-art,linear-gradient(135deg,#102B55,#0E7490));
+  background-size:cover;background-position:center;
+  transform:scale(1);transition:transform 7s ease;
+}
+.hero-slide.active::before{transform:scale(1.09)}
+.hero-slide::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 82% 40%,#0EA5E933,transparent 34%);
+}
+.hero-content{max-width:690px}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;color:#FCDFA0;
+  font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+}
+.hero-kicker::before{content:"";width:26px;height:2px;background:var(--gold-500)}
+.hero-content h2{
+  font-family:"Plus Jakarta Sans",Inter,sans-serif;
+  font-size:clamp(2rem,4.8vw,3.55rem);line-height:1.08;
+  letter-spacing:-.045em;margin:17px 0 14px;font-weight:800;
+}
+.hero-content p{max-width:610px;color:#D7E5F8;font-size:clamp(.88rem,1.5vw,1.02rem);line-height:1.8}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero-glass{
+  position:absolute;right:5%;bottom:18%;width:210px;padding:17px;
+  border:1px solid #FFFFFF35;border-radius:16px;
+  background:#FFFFFF14;backdrop-filter:blur(12px);
+  box-shadow:0 15px 45px #0002;transform:rotate(2deg);
+}
+.hero-glass strong{display:block;color:var(--gold-400);font-size:1.55rem}
+.hero-glass span{font-size:.72rem;color:#E5EEF9}
+.hero-controls{
+  position:absolute;z-index:5;left:clamp(25px,5vw,62px);right:clamp(25px,5vw,62px);
+  bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.hero-arrow{
+  width:36px;height:36px;border-radius:50%;border:1px solid #FFFFFF55;
+  background:#FFFFFF1C;color:white;font-size:1.1rem;
+}
+.hero-arrow:hover{background:#FFFFFF38}
+.hero-dots{display:flex;align-items:center;gap:7px}
+.hero-dot{
+  width:8px;height:8px;border:0;border-radius:20px;padding:0;
+  background:#FFFFFF70;transition:width .25s,background .25s;
+}
+.hero-dot[aria-current="true"]{width:25px;background:var(--gold-400);box-shadow:0 0 12px #F59E0B99}
+.hero-progress{height:3px;background:#FFFFFF30;flex:1;overflow:hidden;border-radius:5px}
+.hero-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan-500),var(--gold-400))}
+.hero-progress span.running{animation:slideTimer 6s linear forwards}
+@keyframes slideTimer{to{width:100%}}
+.hero-pause{border:0;background:transparent;color:#DCE7F7;font-size:.72rem;font-weight:700}
+
+/* KPI row */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:22px 0}
+.kpi{
+  padding:17px 19px;background:white;border:1px solid var(--ice-200);
+  border-radius:15px;display:flex;align-items:center;gap:13px;
+}
+.kpi-icon{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:12px;
+  background:#EAF1FF;color:var(--blue-700);font-size:1.2rem;
+}
+.kpi strong{display:block;font-family:"Plus Jakarta Sans";font-size:1.45rem;color:var(--navy-900);line-height:1.1}
+.kpi span{font-size:.69rem;color:var(--slate-500);font-weight:700}
+
+/* Directory layout */
+.directory-layout{display:grid;grid-template-columns:275px minmax(0,1fr);gap:22px;align-items:start}
+.sidebar-stack{display:grid;gap:15px}
+.sidebar-card{padding:17px}
+.sidebar-title{
+  font-family:"Plus Jakarta Sans";font-size:.86rem;font-weight:800;
+  color:var(--navy-900);margin:0 0 13px;
+}
+.section-filter-list{display:grid;gap:10px}
+.section-filter{
+  display:flex;align-items:flex-start;gap:9px;color:var(--slate-700);
+  font-size:.75rem;cursor:pointer;
+}
+.section-filter input{accent-color:var(--blue-700);margin-top:3px}
+.section-filter small{margin-left:auto;color:var(--slate-500);font-weight:800}
+.quick-links{display:grid;gap:8px}
+.quick-links a,.quick-links button{
+  display:flex;align-items:center;gap:9px;text-align:left;
+  border:0;background:transparent;text-decoration:none;color:var(--slate-600);
+  font-size:.76rem;font-weight:700;padding:5px 0;
+}
+.quick-links a:hover,.quick-links button:hover{color:var(--blue-700)}
+.directory-toolbar{
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:17px;
+}
+.search-wrap{position:relative;flex:1 1 240px}
+.search-wrap input,.field input,.field select,.field textarea,.toolbar-select{
+  width:100%;border:1px solid var(--slate-300);border-radius:10px;
+  padding:11px 12px;background:white;color:var(--slate-900);font-size:.82rem;
+}
+.search-wrap input{padding-left:38px}
+.search-wrap::before{content:"⌕";position:absolute;left:13px;top:5px;font-size:1.45rem;color:var(--slate-400)}
+.toolbar-select{width:auto;min-width:160px}
+.directory-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:5px 0 14px}
+.directory-meta p{font-size:.76rem;color:var(--slate-500);margin:0}
+.trainee-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+
+/* Portrait cards and hover-reveal bulletin */
+.trainee-card{
+  height:320px;position:relative;overflow:hidden;isolation:isolate;
+  border-radius:17px;background:var(--navy-900);
+  border:1px solid #D8E5F5;box-shadow:0 8px 22px #0b1e3d12;
+  cursor:pointer;outline-offset:4px;
+}
+.trainee-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.trainee-card:hover .trainee-photo,
+.trainee-card:focus-within .trainee-photo{transform:scale(1.04)}
+.trainee-card::after{
+  content:"";position:absolute;inset:30% 0 0;z-index:1;pointer-events:none;
+  background:linear-gradient(transparent,#06112455 55%,#061124c9);
+}
+.bulletin-strip{
+  position:absolute;z-index:3;left:0;right:0;bottom:0;min-height:54px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:9px 12px;color:white;
+  background:linear-gradient(100deg,#061124ed,#0B1E3De8);
+  border-top:1px solid #FFFFFF35;backdrop-filter:blur(10px);
+  transition:transform .48s cubic-bezier(.2,.8,.2,1),opacity .3s;
+}
+.bulletin-name{font-size:.78rem;font-weight:800;line-height:1.2}
+.bulletin-id{font-size:.62rem;color:#C6D8F0;white-space:nowrap}
+.verified{color:#86EFAC;font-size:.72rem}
+.trainee-drawer{
+  position:absolute;z-index:2;inset:auto 0 0;min-height:74%;
+  padding:20px 14px 75px;color:white;
+  background:linear-gradient(180deg,#0B1E3Dce,#061124f5 28%);
+  border-top:1px solid #FFFFFF40;backdrop-filter:blur(12px);
+  transform:translateY(101%);
+  transition:transform .52s cubic-bezier(.2,.8,.2,1);
+  overflow-y:auto;
+}
+.trainee-card:hover .trainee-drawer,
+.trainee-card:focus-within .trainee-drawer,
+.trainee-card.expanded .trainee-drawer{transform:translateY(0)}
+.trainee-card:hover .bulletin-strip,
+.trainee-card:focus-within .bulletin-strip,
+.trainee-card.expanded .bulletin-strip{opacity:0;pointer-events:none}
+.drawer-name{font-family:"Plus Jakarta Sans";font-size:1rem;font-weight:800;margin:0 0 3px}
+.drawer-section{font-size:.72rem;color:#BAE6FD;font-weight:800;margin:0 0 8px}
+.drawer-line{font-size:.68rem;color:#E2E8F0;margin:5px 0}
+.skill-tags{display:flex;gap:5px;flex-wrap:wrap;margin:9px 0}
+.skill-tag{font-size:.61rem;padding:3px 7px;border-radius:99px;background:#FFFFFF1C;border:1px solid #FFFFFF2B;color:#EAF4FF}
+.academic-links{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.academic-links a{font-size:.62rem;font-weight:800;color:#BAE6FD;text-decoration:none;border-bottom:1px solid #7DD3FC66}
+.drawer-action{margin-top:8px}
+
+/* List layout */
+.trainee-list{display:grid;gap:10px}
+.list-row{
+  display:flex;align-items:center;gap:14px;padding:13px;background:white;
+  border:1px solid var(--ice-200);border-radius:14px;cursor:pointer;
+}
+.list-row img{width:58px;height:58px;object-fit:cover;object-position:top;border-radius:50%}
+.list-row h3{font-size:.86rem;color:var(--navy-900);margin:0}
+.list-row p{font-size:.72rem;color:var(--slate-500);margin:3px 0 0}
+
+/* Registration and admin */
+.page-panel{padding:clamp(18px,3vw,30px);margin-bottom:24px}
+.steps{display:flex;gap:7px;margin:20px 0}
+.step{flex:1;height:5px;border-radius:9px;background:var(--ice-200)}
+.step.active{background:linear-gradient(90deg,var(--blue-700),var(--cyan-500))}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-size:.75rem;font-weight:800;color:var(--navy-900)}
+.field small{font-size:.68rem;color:var(--slate-500)}
+.field textarea{min-height:90px;resize:vertical}
+.field-full{grid-column:1/-1}
+.wizard-actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.photo-preview{
+  width:112px;height:112px;object-fit:cover;object-position:top;
+  border-radius:15px;border:2px solid var(--ice-200);background:var(--ice-100);
+}
+.admin-grid{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.4fr);gap:16px}
+.queue-item{
+  width:100%;text-align:left;border:1px solid var(--ice-200);border-radius:11px;
+  padding:12px;background:white;margin-bottom:8px;
+}
+.queue-item.selected{border-color:var(--blue-700);background:#EFF6FF}
+.queue-item strong{display:block;font-size:.78rem;color:var(--navy-900)}
+.queue-item span{font-size:.68rem;color:var(--slate-500)}
+.admin-preview{padding:18px;min-height:280px}
+.status-pending{color:#92400E;background:#FEF3C7}
+.status-approved{color:#166534;background:#DCFCE7}
+
+/* Resource hub and footer */
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.resource-card{padding:21px}
+.resource-list{display:grid;gap:10px;margin-top:15px}
+.resource-list a{
+  display:flex;align-items:flex-start;gap:10px;text-decoration:none;
+  color:var(--slate-700);font-size:.78rem;font-weight:700;
+}
+.resource-list a:hover{color:var(--blue-700)}
+.new-badge{font-size:.58rem;font-weight:900;color:#92400E;background:#FEF3C7;border-radius:5px;padding:2px 5px}
+.footer{
+  margin-top:45px;background:var(--navy-950);color:#C7D2E4;
+  border-top:4px solid var(--blue-700);padding:38px 0 18px;
+}
+.footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:26px}
+.footer h3,.footer h4{color:white;font-family:"Plus Jakarta Sans";margin:0 0 12px}
+.footer h3{font-size:1rem}.footer h4{font-size:.83rem}
+.footer p,.footer li,.footer a{font-size:.72rem;line-height:1.8}
+.footer a{color:#C7D2E4;text-decoration:none}
+.footer a:hover{color:var(--gold-400)}
+.footer ul{list-style:none;margin:0;padding:0}
+.footer-bottom{border-top:1px solid #FFFFFF1A;margin-top:25px;padding-top:16px;font-size:.68rem;color:#94A3B8}
+
+/* Dossier modal */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:100;background:#020617b8;
+  display:none;align-items:center;justify-content:center;padding:18px;
+}
+.modal-backdrop.open{display:flex}
+.modal{
+  width:min(780px,100%);max-height:90vh;overflow:auto;background:white;
+  border-radius:19px;box-shadow:var(--shadow-lg);position:relative;
+}
+.modal-head{padding:24px 26px 17px;border-bottom:1px solid var(--ice-200)}
+.modal-body{padding:22px 26px 28px}
+.modal-close{
+  position:absolute;right:15px;top:15px;width:36px;height:36px;
+  border:0;border-radius:50%;background:var(--ice-100);color:var(--navy-900);
+  font-size:1.15rem;font-weight:800;
+}
+.dossier-identity{display:flex;align-items:center;gap:17px;padding-right:35px}
+.dossier-identity img{width:90px;height:90px;object-fit:cover;object-position:top;border-radius:17px}
+.dossier-identity h2{font-family:"Plus Jakarta Sans";font-size:1.45rem;color:var(--navy-900);margin:0}
+.dossier-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dossier-field{padding:12px;border:1px solid var(--ice-200);border-radius:11px;background:var(--ice-50)}
+.dossier-field strong{display:block;font-size:.68rem;color:var(--slate-500);margin-bottom:4px}
+.dossier-field span{font-size:.8rem;color:var(--navy-900);overflow-wrap:anywhere}
+.toast-stack{position:fixed;right:18px;bottom:18px;z-index:200;display:grid;gap:9px;max-width:min(370px,calc(100vw - 36px))}
+.toast{
+  padding:12px 15px;border-radius:11px;background:var(--navy-900);color:white;
+  box-shadow:var(--shadow-lg);font-size:.77rem;border-left:4px solid var(--cyan-500);
+}
+.toast.success{border-color:#4ADE80}.toast.error{border-color:#F87171}
+
+/* Responsive */
+@media(max-width:1050px){
+  .trainee-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .directory-layout{grid-template-columns:235px minmax(0,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-glass{right:4%;bottom:16%;width:175px}
+}
+@media(max-width:760px){
+  .container{width:min(100% - 28px,var(--content-width))}
+  .masthead-inner{align-items:flex-start;padding-block:16px}
+  .crest{width:52px;height:52px;flex-basis:52px}
+  .masthead-side{display:none}
+  .nav-inner{align-items:flex-start;padding-block:8px}
+  .nav-tabs{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nav-tab{justify-content:center;padding:9px 5px;font-size:.69rem}
+  .breadcrumb{padding:9px 0}
+  .hero-showcase{min-height:430px;border-radius:17px}
+  .hero-slide{align-items:flex-start;padding:32px 23px 80px}
+  .hero-content h2{font-size:2.15rem}
+  .hero-glass{display:none}
+  .hero-controls{left:20px;right:20px;bottom:17px}
+  .kpi-grid{gap:7px}
+  .kpi{padding:12px 9px;gap:7px}
+  .kpi-icon{width:32px;height:32px;font-size:.9rem}
+  .kpi strong{font-size:1.1rem}
+  .kpi span{font-size:.6rem}
+  .directory-layout{grid-template-columns:1fr}
+  .sidebar-stack{grid-template-columns:1fr}
+  .trainee-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .trainee-card{height:290px}
+  .trainee-drawer{min-height:82%;padding:15px 10px 68px}
+  .bulletin-strip{padding:8px}
+  .bulletin-name{font-size:.7rem}
+  .bulletin-id{font-size:.57rem}
+  .form-grid,.admin-grid,.resource-grid{grid-template-columns:1fr}
+  .dossier-grid{grid-template-columns:1fr}
+}
+@media(max-width:430px){
+  .utility-links{gap:8px}
+  .utility-links a{font-size:.65rem}
+  .masthead-copy h1{font-size:1rem}
+  .masthead-copy .hindi{font-size:.7rem}
+  .trainee-grid{grid-template-columns:1fr}
+  .trainee-card{height:360px}
+  .kpi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .footer-grid{grid-template-columns:1fr}
+  .directory-toolbar>*{width:100%}
+  .toolbar-select{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+@media print{
+  body{background:white;color:#111}
+  body *{visibility:hidden!important}
+  #dossierModal,#dossierModal *{visibility:visible!important}
+  #dossierModal{position:absolute;inset:0;display:block!important;background:white;padding:0}
+  #dossierModal .modal{width:100%;max-height:none;overflow:visible;box-shadow:none;border:0}
+  #dossierModal .modal-close,.no-print{display:none!important}
+  #dossierModal .modal-head,#dossierModal .modal-body{padding:12px 18px}
+  #dossierModal .dossier-field{break-inside:avoid}
+  a{color:#111;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="toast-container" class="toast-stack" role="status" aria-live="polite"></div>
+
+<!-- Top utility bar -->
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <div class="utility-left">
+      <span class="pill pill-live"><span aria-hidden="true">●</span> Portal Interface Online</span>
+      <span>Indian Institute of Technology (BHU), Varanasi – 221005</span>
+      <span id="sync-status-indicator" aria-live="polite">Connecting to Google Sheets…</span>
+    </div>
+    <div class="utility-right">
+      <div class="font-tools" aria-label="Font size controls">
+        <button type="button" onclick="setFontScale(92)" aria-label="Decrease font size" aria-pressed="false" id="font-btn-sm">A−</button>
+        <button type="button" onclick="setFontScale(100)" aria-label="Default font size" aria-pressed="true" id="font-btn-md">A</button>
+        <button type="button" onclick="setFontScale(108)" aria-label="Increase font size" aria-pressed="false" id="font-btn-lg">A+</button>
+      </div>
+      <nav class="utility-links" aria-label="Institutional quick links">
+        <a href="https://www.iitbhu.ac.in/cf/lib" target="_blank" rel="noopener noreferrer">Library Home</a>
+        <a href="https://opac.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer">Web OPAC</a>
+        <a href="https://www.iitbhu.ac.in/cf/lib/eresources" target="_blank" rel="noopener noreferrer">E-Resources</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- Institutional masthead -->
+<header class="masthead">
+  <div class="container masthead-inner">
+    <img
+  src="images/library-logo.png"
+  class="crest"
+  alt="Shreenivas Deshpande Library, IIT (BHU) Varanasi logo"
+>
+    <div class="masthead-copy">
+      <p class="hindi">श्रीनिवास देशपांडे पुस्तकालय</p>
+      <h1>Shreenivas Deshpande Library</h1>
+      <p class="subline">भारतीय प्रौद्योगिकी संस्थान (का.हि.वि.वि.) वाराणसी</p>
+      <p class="subline">Indian Institute of Technology (Banaras Hindu University), Varanasi</p>
+    </div>
+    <div class="masthead-side">
+      <strong>LIBRARY TRAINEE PORTAL</strong>
+      Academic Community · Learning · Research Support
+    </div>
+  </div>
+</header>
+
+<!-- Sticky mode navigation -->
+<!-- =========================================================
+     RESTORED TRAINEEV4 INSTITUTIONAL NAVIGATION
+     ========================================================= -->
+
+<div class="navigation-stack">
+
+  <nav class="institutional-nav"
+       aria-label="Primary Library Navigation">
+
+    <div class="container institutional-nav-inner">
+
+      <ul>
+
+        <li>
+          <a href="https://www.iitbhu.ac.in/cf/lib"
+             target="_blank" rel="noopener noreferrer">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.iitbhu.ac.in/cf/lib"
+             target="_blank" rel="noopener noreferrer">
+            <span class="nav-icon" aria-hidden="true">ⓘ</span>
+            About Library
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.iitbhu.ac.in/cf/lib/services"
+             target="_blank" rel="noopener noreferrer">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            Sections &amp; Divisions
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.iitbhu.ac.in/cf/lib/eresources"
+             target="_blank" rel="noopener noreferrer">
+            <span class="nav-icon" aria-hidden="true">▣</span>
+            E-Resources
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.iitbhu.ac.in/cf/lib/services"
+             target="_blank" rel="noopener noreferrer">
+            <span class="nav-icon" aria-hidden="true">⚙</span>
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a href="#directory-anchor"
+             class="institutional-active"
+             aria-current="page"
+             onclick="switchMode('directory');return false;">
+            <span class="nav-icon" aria-hidden="true">♙</span>
+            People / Trainee Portal
+          </a>
+        </li>
+
+        <li>
+          <a href="#footer-contact">
+            <span class="nav-icon" aria-hidden="true">✉</span>
+            Contact Us
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- Existing TraineeV4 portal mode navigation — preserved -->
+
+  <nav class="main-nav" aria-label="Portal navigation">
+
+    <div class="container nav-inner">
+
+      <div class="nav-tabs">
+
+        <a href="?mode=directory"
+           class="nav-tab active"
+           id="tab-directory"
+           onclick="switchMode('directory');return false;">
+          ▦ Directory
+        </a>
+
+        <a href="?mode=submit"
+           class="nav-tab"
+           id="tab-submit"
+           onclick="switchMode('submit');return false;">
+          ＋ Trainee Registration
+        </a>
+
+        <a href="?mode=admin"
+           class="nav-tab admin"
+           id="tab-admin"
+           onclick="requestAdminAccess();return false;">
+          ⚙ Admin Console
+          <span class="nav-badge" id="nav-pending-badge">0</span>
+        </a>
+
+      </div>
+
+      <span class="pill pill-blue">
+        S.D. Library · IIT (BHU)
+      </span>
+
+    </div>
+
+  </nav>
+
+</div>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    Home <span aria-hidden="true">/</span> Library Services
+    <span aria-hidden="true">/</span> <strong id="breadcrumb-current">Trainee Directory</strong>
+  </div>
+
+  <!-- DIRECTORY MODE -->
+  <section id="view-directory">
+    <!-- Four-slide showcase -->
+    <section class="hero-showcase" id="hero-showcase" aria-label="Library trainee network highlights">
+      <article class="hero-slide active" data-slide="0"
+        style="--slide-art:url('images/slide-1.png')"
+	        <div class="hero-content">
+          <span class="hero-kicker">Shreenivas Deshpande Library</span>
+          <h2>Building the next generation of LIS professionals.</h2>
+          <p>Discover the Library Trainee Network and its work across Koha, DSpace, IRINS, digital scholarship and modern academic library services.</p>
+          <div class="hero-actions">
+            <button class="btn btn-gold" type="button" onclick="scrollToDirectory()">Explore Trainees →</button>
+            <button class="btn btn-outline" type="button" onclick="switchMode('submit')">Register as a Trainee</button>
+          </div>
+        </div>
+        <div class="hero-glass"><strong>01</strong><span>Learning · Practice · Professional Growth</span></div>
+      </article>
+
+      <article class="hero-slide" data-slide="1"
+        style="--slide-art:url('images/slide-2.png')"
+        <div class="hero-content">
+          <span class="hero-kicker">Digital Repository &amp; Research Support</span>
+          <h2>Connecting research with visibility and discovery.</h2>
+          <p>Explore academic support themes including faculty research profiles, Vidwan, ORCID, Scopus discovery and electronic theses and dissertations curation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://irins.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer">IIT BHU IRINS ↗</a>
+            <a class="btn btn-outline" href="https://shodhganga.inflibnet.ac.in/" target="_blank" rel="noopener noreferrer">Shodhganga ↗</a>
+          </div>
+        </div>
+        <div class="hero-glass"><strong>02</strong><span>Research Profiles · Repositories · ETDs</span></div>
+      </article>
+
+      <article class="hero-slide" data-slide="2"
+        style="--slide-art:url('images/slide-3.png')"
+        <div class="hero-content">
+          <span class="hero-kicker">Batch Onboarding &amp; Skill Development</span>
+          <h2>Six specialist divisions. One collaborative learning environment.</h2>
+          <p>Hands-on exposure to acquisition, technical processing, circulation, periodicals, digital repositories, reference services and library operations.</p>
+          <div class="hero-actions">
+            <button class="btn btn-gold" type="button" onclick="scrollToDirectory()">Browse Library Sections →</button>
+          </div>
+        </div>
+        <div class="hero-glass"><strong>06</strong><span>Specialised Library Sections</span></div>
+      </article>
+
+      <article class="hero-slide" data-slide="3"
+        style="--slide-art:url('images/slide-4.png')"
+        <div class="hero-content">
+          <span class="hero-kicker">Recruitment &amp; LIS Competitive Preparation</span>
+          <h2>Prepare, participate and progress in librarianship.</h2>
+          <p>Find trainee notices, onboarding information, standard operating procedures and study resources for UGC-NET, Koha, DSpace and LIS competitive examinations.</p>
+          <div class="hero-actions">
+            <button class="btn btn-gold" type="button" onclick="document.getElementById('resource-hub').scrollIntoView({behavior:'smooth'})">Open Resource Hub →</button>
+            <button class="btn btn-outline" type="button" onclick="switchMode('submit')">Trainee Registration</button>
+          </div>
+        </div>
+        <div class="hero-glass"><strong>03</strong><span>Recruitment · Preparation · Development</span></div>
+      </article>
+
+      <div class="hero-controls">
+        <button class="hero-arrow" type="button" id="hero-prev" aria-label="Previous slide">‹</button>
+        <div class="hero-dots" id="hero-dots" aria-label="Choose showcase slide">
+          <button class="hero-dot" type="button" aria-label="Show slide 1" aria-current="true" data-go-slide="0"></button>
+          <button class="hero-dot" type="button" aria-label="Show slide 2" aria-current="false" data-go-slide="1"></button>
+          <button class="hero-dot" type="button" aria-label="Show slide 3" aria-current="false" data-go-slide="2"></button>
+          <button class="hero-dot" type="button" aria-label="Show slide 4" aria-current="false" data-go-slide="3"></button>
+        </div>
+        <div class="hero-progress" aria-hidden="true"><span id="hero-progress-fill"></span></div>
+        <button class="hero-pause" type="button" id="hero-pause" aria-pressed="false">Ⅱ Pause</button>
+        <button class="hero-arrow" type="button" id="hero-next" aria-label="Next slide">›</button>
+      </div>
+    </section>
+
+    <!-- Directory summary -->
+    <section class="kpi-grid" aria-label="Directory summary">
+      <div class="kpi"><div class="kpi-icon" aria-hidden="true">♙</div><div><strong id="kpi-total">0</strong><span>Published Trainees</span></div></div>
+      <div class="kpi"><div class="kpi-icon" aria-hidden="true">◎</div><div><strong id="kpi-net">0</strong><span>NET Qualified (as recorded)</span></div></div>
+      <div class="kpi"><div class="kpi-icon" aria-hidden="true">◷</div><div><strong id="kpi-pending">0</strong><span>Awaiting Verification</span></div></div>
+    </section>
+
+    <!-- Directory and sidebar -->
+    <div class="directory-layout" id="directory-anchor">
+      <aside class="sidebar-stack" aria-label="Directory filters and quick links">
+        <section class="card sidebar-card">
+          <h2 class="sidebar-title">Filter by Library Section</h2>
+          <div id="section-filters" class="section-filter-list"></div>
+          <hr class="rule">
+          <button type="button" class="btn btn-outline btn-small" onclick="resetFilters()">Clear Section Filters</button>
+        </section>
+
+        <section class="card sidebar-card">
+          <h2 class="sidebar-title">Institutional Quick Links</h2>
+          <div class="quick-links">
+            <a href="https://www.iitbhu.ac.in/cf/lib" target="_blank" rel="noopener noreferrer">↗ Library Home</a>
+            <a href="https://shodhganga.inflibnet.ac.in/" target="_blank" rel="noopener noreferrer">↗ Shodhganga</a>
+            <a href="https://irins.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer">↗ IIT BHU IRINS</a>
+            <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer">↗ National Digital Library</a>
+            <button type="button" onclick="copySubmissionLink()">▣ Copy Trainee Registration Link</button>
+          </div>
+        </section>
+
+        <section class="card sidebar-card">
+          <h2 class="sidebar-title">Directory Information</h2>
+          <p class="muted" style="font-size:.75rem;margin:0">
+            Only approved profiles are displayed in the public directory. Submitted information is subject to verification by the Library administration.
+          </p>
+        </section>
+      </aside>
+
+      <section aria-label="Trainee directory">
+        <div class="directory-toolbar">
+          <div class="search-wrap">
+            <input id="directorySearch" type="search" placeholder="Search name, trainee ID, section or skills…" aria-label="Search trainee directory">
+          </div>
+          <select class="toolbar-select" id="batchFilter" aria-label="Filter by batch tenure">
+            <option value="ALL">All Batch Tenures</option>
+          </select>
+          <button class="btn btn-outline btn-small" type="button" onclick="resetFilters()">Clear Filters</button>
+          <button class="btn btn-dark btn-small" type="button" onclick="exportCSV()">⇩ Export CSV</button>
+        </div>
+
+        <div class="directory-meta">
+          <p id="directory-count" aria-live="polite">Loading directory…</p>
+          <div style="display:flex;gap:7px">
+            <button class="btn btn-outline btn-small" type="button" onclick="setLayoutMode('grid')" aria-pressed="true" id="layout-grid">▦ Grid</button>
+            <button class="btn btn-outline btn-small" type="button" onclick="setLayoutMode('list')" aria-pressed="false" id="layout-list">☷ List</button>
+          </div>
+        </div>
+        <div id="directory-grid" class="trainee-grid"></div>
+        <div id="directory-list" class="trainee-list" hidden></div>
+        <div id="directory-empty" class="card page-panel" hidden>
+          <h3 class="section-heading">No matching trainee profiles</h3>
+          <p class="section-intro">Try another search term or clear the selected filters. Approved profiles will appear here after verification.</p>
+          <button class="btn btn-outline" type="button" onclick="resetFilters()">Clear all filters</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Resource hub -->
+    <section id="resource-hub" style="margin-top:38px">
+      <div style="margin-bottom:17px">
+        <span class="eyebrow">Learn · Prepare · Participate</span>
+        <h2 class="section-heading" style="margin-top:5px">Library Trainee Resource Hub</h2>
+        <p class="section-intro">Recruitment information and learning resources for Library and Information Science professionals.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="card resource-card">
+          <span class="eyebrow">Notices &amp; Opportunities</span>
+          <h3 class="section-heading" style="font-size:1.08rem;margin-top:7px">Library Trainee Recruitment</h3>
+          <div class="resource-list">
+            <a href="https://www.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer"><span>↗</span><span>Official IIT (BHU) notifications and announcements <span class="new-badge">CHECK</span></span></a>
+            <a href="https://www.iitbhu.ac.in/cf/lib" target="_blank" rel="noopener noreferrer"><span>↗</span><span>Shreenivas Deshpande Library information and notices</span></a>
+            <a href="https://www.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer"><span>↗</span><span>Institutional recruitment and application information</span></a>
+          </div>
+          <p class="muted" style="font-size:.68rem;margin:14px 0 0">Check the official institutional website for current vacancies, eligibility and deadlines.</p>
+        </article>
+        <article class="card resource-card">
+          <span class="eyebrow">Study &amp; Professional Development</span>
+          <h3 class="section-heading" style="font-size:1.08rem;margin-top:7px">LIS Study Materials</h3>
+          <div class="resource-list">
+            <a href="https://ugcnet.nta.ac.in/" target="_blank" rel="noopener noreferrer"><span>↗</span><span>UGC-NET official examination portal</span></a>
+            <a href="https://koha-community.org/" target="_blank" rel="noopener noreferrer"><span>↗</span><span>Koha Library Management System documentation</span></a>
+            <a href="https://dspace.org/" target="_blank" rel="noopener noreferrer"><span>↗</span><span>DSpace repository platform</span></a>
+            <a href="https://www.inflibnet.ac.in/" target="_blank" rel="noopener noreferrer"><span>↗</span><span>INFLIBNET programmes and services</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- REGISTRATION MODE -->
+  <section id="view-submit" hidden>
+    <div class="card page-panel">
+      <span class="eyebrow">Trainee onboarding</span>
+      <h2 class="section-heading" style="margin-top:6px">Trainee Registration</h2>
+      <p class="section-intro">Complete the three steps below. Your submission will remain pending until reviewed by the Library administration.</p>
+      <div class="steps" aria-label="Registration progress">
+        <div class="step active" id="stepbar-1"></div>
+        <div class="step" id="stepbar-2"></div>
+        <div class="step" id="stepbar-3"></div>
+      </div>
+
+      <form id="traineeForm" onsubmit="handleFormSubmit(event)" novalidate>
+        <!-- Step 1 -->
+        <section id="wizard-step-1">
+          <h3 class="section-heading" style="font-size:1.05rem;margin-bottom:15px">01 · Personal &amp; Batch Information</h3>
+          <div class="form-grid">
+            <div class="field"><label for="f_fullName">Full Name *</label><input id="f_fullName" required maxlength="120" autocomplete="name" placeholder="Enter your full name"></div>
+            <div class="field"><label for="f_traineeId">Trainee ID *</label><input id="f_traineeId" required maxlength="50" placeholder="e.g. SDLT-2026-01"></div>
+            <div class="field"><label for="f_batchTenure">Batch Tenure *</label><input id="f_batchTenure" required maxlength="40" placeholder="e.g. 2026–2027"></div>
+            <div class="field"><label for="f_section">Assigned Library Section *</label>
+              <select id="f_section" required><option value="">Select section</option></select>
+            </div>
+            <div class="field"><label for="f_email">Email Address *</label><input id="f_email" type="email" required maxlength="160" autocomplete="email" placeholder="name@example.com"></div>
+            <div class="field"><label for="f_phone">Mobile Number</label><input id="f_phone" type="tel" maxlength="25" autocomplete="tel" placeholder="+91…"></div>
+            <div class="field field-full"><label for="f_hometown">Hometown / City</label><input id="f_hometown" maxlength="100" placeholder="City, State"></div>
+          </div>
+          <div class="wizard-actions"><span></span><button class="btn btn-primary" type="button" onclick="goStep(2)">Continue →</button></div>
+        </section>
+
+        <!-- Step 2 -->
+        <section id="wizard-step-2" hidden>
+          <h3 class="section-heading" style="font-size:1.05rem;margin-bottom:15px">02 · Academic &amp; Professional Profile</h3>
+          <div class="form-grid">
+            <div class="field field-full"><label for="f_qualifications">Highest LIS Qualifications *</label><textarea id="f_qualifications" required maxlength="1200" placeholder="Degree, specialisation, institution and year"></textarea></div>
+            <div class="field"><label for="f_university">University / Institution</label><input id="f_university" maxlength="180"></div>
+            <div class="field"><label for="f_priorExp">Prior Experience</label><textarea id="f_priorExp" maxlength="1200" placeholder="Relevant work, internship or project experience"></textarea></div>
+            <div class="field field-full"><label for="f_skills">Skills &amp; Technical Competencies</label><textarea id="f_skills" maxlength="1200" placeholder="Koha, DSpace, cataloguing, metadata, research support…"></textarea></div>
+            <div class="field field-full"><label for="f_responsibilities">Key Responsibilities / Areas of Work</label><textarea id="f_responsibilities" maxlength="1500"></textarea></div>
+          </div>
+          <div class="wizard-actions">
+            <button class="btn btn-outline" type="button" onclick="goStep(1)">← Back</button>
+            <button class="btn btn-primary" type="button" onclick="goStep(3)">Continue →</button>
+          </div>
+        </section>
+
+        <!-- Step 3 -->
+        <section id="wizard-step-3" hidden>
+          <h3 class="section-heading" style="font-size:1.05rem;margin-bottom:15px">03 · Academic Links &amp; Portrait</h3>
+          <div class="form-grid">
+            <div class="field"><label for="f_orcid">ORCID Profile URL</label><input id="f_orcid" type="url" maxlength="250" placeholder="https://orcid.org/…"></div>
+            <div class="field"><label for="f_vidwan">Vidwan Profile URL</label><input id="f_vidwan" type="url" maxlength="250" placeholder="https://vidwan.inflibnet.ac.in/…"></div>
+            <div class="field field-full"><label for="f_linkedin">LinkedIn Profile URL</label><input id="f_linkedin" type="url" maxlength="250" placeholder="https://www.linkedin.com/in/…"></div>
+            <div class="field">
+              <label for="f_photo">Portrait Photograph</label>
+              <input id="f_photo" type="file" accept="image/jpeg,image/png,image/webp">
+              <small>Image is resized to 300 × 300 pixels and compressed as JPEG before submission.</small>
+            </div>
+            <div class="field">
+              <label>Photo Preview</label>
+              <img id="photo-preview" class="photo-preview" alt="Selected portrait preview" src="">
+              <small id="photo-status">No photograph selected. A monogram will be used.</small>
+            </div>
+            <div class="field field-full">
+              <label style="display:flex;gap:9px;align-items:flex-start;font-weight:600">
+                <input id="f_consent" type="checkbox" required style="margin-top:4px;accent-color:var(--blue-700)">
+                I confirm that the information supplied is accurate and understand that the public profile may be displayed after administrative approval.
+              </label>
+            </div>
+          </div>
+          <div class="wizard-actions">
+            <button class="btn btn-outline" type="button" onclick="goStep(2)">← Back</button>
+            <button class="btn btn-primary" type="submit" id="submitBtn">Submit for Verification</button>
+          </div>
+        </section>
+      </form>
+    </div>
+  </section>
+
+  <!-- ADMIN MODE -->
+  <section id="view-admin" hidden>
+    <div class="card page-panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>
+          <span class="eyebrow">Restricted access</span>
+          <h2 class="section-heading" style="margin-top:5px">Administration &amp; Moderation Console</h2>
+          <p class="section-intro">Review trainee submissions, inspect profile details and manage publication status.</p>
+        </div>
+        <button class="btn btn-outline btn-small" type="button" onclick="lockAdminConsole()">Lock Console</button>
+      </div>
+      <hr class="rule">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+        <button class="btn btn-primary btn-small" id="adm-tab-pending" type="button" onclick="setAdminTab('Pending')">Pending Submissions</button>
+        <button class="btn btn-outline btn-small" id="adm-tab-approved" type="button" onclick="setAdminTab('Approved')">Approved Profiles</button>
+        <button class="btn btn-dark btn-small" type="button" onclick="exportCSV()">⇩ Export CSV</button>
+      </div>
+      <div class="admin-grid">
+        <section class="card sidebar-card" aria-label="Moderation queue">
+          <h3 class="sidebar-title">Submission Queue</h3>
+          <div id="pendingQueueList" aria-live="polite"></div>
+        </section>
+        <section class="card admin-preview" aria-label="Selected trainee profile preview">
+          <h3 class="sidebar-title">Profile Preview &amp; Review</h3>
+          <div id="adminPreviewPane"><p class="muted">Select a submission from the queue to inspect its details.</p></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Institutional footer -->
+<footer class="footer" id="footer-contact">
+  <div class="container">
+    <div class="footer-grid">
+      <section>
+        <h3>Shreenivas Deshpande Library</h3>
+        <p>Indian Institute of Technology (Banaras Hindu University), Varanasi – 221005, Uttar Pradesh, India.</p>
+        <p><strong>Library Services</strong><br>
+          Email: <a href="mailto:libraryservices@iitbhu.ac.in">libraryservices@iitbhu.ac.in</a><br>
+          Office: +91-542-716-5805 (Ext. 5803 / 5807)
+        </p>
+      </section>
+      <section>
+        <h4>Library Timings</h4>
+        <ul>
+          <li>Reading Hall (Gate 2): 8:00 AM – 1:00 AM</li>
+          <li>Library (Mon–Fri): 9:30 AM – 7:30 PM</li>
+          <li>Saturday &amp; Government Holidays: 9:30 AM – 6:00 PM</li>
+          <li>Circulation: 9:45 AM – 7:15 PM</li>
+        </ul>
+        <p class="muted">Please verify current timings with the Library.</p>
+      </section>
+      <section>
+        <h4>Academic &amp; Library Links</h4>
+        <ul>
+          <li><a href="https://www.iitbhu.ac.in/cf/lib" target="_blank" rel="noopener noreferrer">S.D. Library Home</a></li>
+          <li><a href="https://opac.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer">Web OPAC</a></li>
+          <li><a href="https://www.iitbhu.ac.in/cf/lib/eresources" target="_blank" rel="noopener noreferrer">E-Resources</a></li>
+          <li><a href="https://irins.iitbhu.ac.in/" target="_blank" rel="noopener noreferrer">IIT BHU IRINS</a></li>
+          <li><a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer">National Digital Library</a></li>
+        </ul>
+      </section>
+      <section>
+        <h4>Portal Actions</h4>
+        <ul>
+          <li><a href="?mode=directory">Trainee Directory</a></li>
+          <li><a href="?mode=submit">Trainee Registration</a></li>
+          <li><a href="?mode=admin">Admin Console</a></li>
+        </ul>
+        <p>For portal-related assistance, contact Library Services.</p>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      © <span id="copyright-year"></span> Shreenivas Deshpande Library, IIT (BHU) Varanasi. All rights reserved.
+      <span style="float:right">Library Trainee Portal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Dossier modal -->
+<div class="modal-backdrop" id="dossierModal" role="dialog" aria-modal="true" aria-labelledby="dossier-title"
+     onclick="if(event.target===this)closeModal()">
+  <article class="modal">
+    <button class="modal-close no-print" type="button" onclick="closeModal()" aria-label="Close dossier">×</button>
+    <header class="modal-head" id="dossier-head"></header>
+    <div class="modal-body" id="dossierContent"></div>
+    <div class="modal-body no-print" style="padding-top:0;display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn btn-primary" type="button" onclick="window.print()">Print / Save as PDF</button>
+      <button class="btn btn-outline" type="button" onclick="closeModal()">Close Dossier</button>
+    </div>
+  </article>
+</div>
+
+<!-- Admin access dialog -->
+<div class="modal-backdrop" id="adminAuthModal" role="dialog" aria-modal="true" aria-labelledby="admin-auth-title">
+  <section class="modal" style="max-width:420px;padding:25px">
+    <button class="modal-close" type="button" onclick="closeAdminModal()" aria-label="Close admin login">×</button>
+    <span class="eyebrow">Restricted access</span>
+    <h2 id="admin-auth-title" class="section-heading" style="margin:8px 35px 7px 0">Admin Authentication</h2>
+    <p class="section-intro" style="margin-bottom:18px">Enter the administrator passcode to open the moderation console.</p>
+    <form onsubmit="verifyAdmin(event)">
+      <div class="field">
+        <label for="adminPassInput">Administrator Passcode</label>
+        <input id="adminPassInput" type="password" required autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%;margin-top:15px">Unlock Admin Console</button>
+    </form>
+    <p class="muted" style="font-size:.68rem;margin:13px 0 0">Production security must be enforced by the Apps Script backend, not by this browser-side dialog.</p>
+  </section>
+</div>
+<script>
+"use strict";
+
+/* ============================================================
+   1. CONFIGURATION — preserved from Trainees-v4.html
+   ============================================================ */
+const CONFIG = {
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwA0decdZQncNLTT6RvFdzuArPOl-LXSsGgy6FPcWvSLerUhUNNAW7H_sLQNp6Nko6H/exec",
+  SHEET_ID: "1iVxQUKCLZQ7IH05_xO9IiOhfafm0bDMtSulEpgHOXH0",
+  ADMIN_PASSCODE: "LPTIITBHU2000",
+  LIBRARY_NAME: "Shreenivas Deshpande Library, IIT (BHU) Varanasi"
+};
+
+const SECTIONS = [
+  "Acquisition",
+  "Technical Processing",
+  "Circulation & Stack Management",
+  "Periodicals & E-Resources",
+  "E-Library",
+  "Digital Library & Institutional Repository (DSpace)",
+  "Reference & Research Support (IRINS / Vidwan)",
+  
+];
+
+/*
+ * The supplied Trainees-v4.html contains an EMPTY fallback array.
+ * Do not insert fictional profiles here and present them as verified.
+ * Approved and pending records are loaded from Google Sheets.
+ */
+const FALLBACK_TRAINEES = [];
+const LOCAL_KEY = "sd_library_trainee_portal_v4_cache";
+
+let allTrainees = [];
+let selectedSections = new Set();
+let compressedPhotoDataUrl = "";
+let adminUnlocked = false;
+let adminTab = "Pending";
+let selectedPendingId = null;
+let layoutMode = "grid";
+let currentStep = 1;
+let heroIndex = 0;
+let heroTimer = null;
+let heroPaused = false;
+let lastFocusedElement = null;
+const HERO_INTERVAL = 6000;
+
+/* ============================================================
+   2. GENERAL HELPERS
+   ============================================================ */
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function escapeHTML(value) {
+  return String(value == null ? "" : value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function safeURL(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  try {
+    const url = new URL(raw);
+    return ["https:", "http:"].includes(url.protocol) ? url.href : "";
+  } catch (_) {
+    return "";
+  }
+}
+
+function initialsFor(name) {
+  return String(name || "LT")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0])
+    .join("")
+    .toUpperCase() || "LT";
+}
+
+function generateMonogram(initials) {
+  const letters = escapeHTML(initials || "LT");
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#1D4ED8"/>
+          <stop offset="1" stop-color="#0EA5E9"/>
+        </linearGradient>
+      </defs>
+      <rect width="300" height="300" fill="url(#g)"/>
+      <circle cx="150" cy="150" r="124" fill="none" stroke="#FFFFFF" stroke-opacity=".28" stroke-width="4"/>
+      <text x="150" y="168" text-anchor="middle" font-family="Arial,sans-serif"
+        font-size="92" font-weight="bold" fill="#FFFFFF">${letters}</text>
+    </svg>`;
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
+function photoFor(record) {
+  const photo = String(record.PhotoURL || "").trim();
+  if (photo.startsWith("data:image/")) return photo;
+  return safeURL(photo) || generateMonogram(initialsFor(record.FullName));
+}
+
+function showToast(message, type = "info") {
+  const container = byId("toast-container");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = "toast" + (type === "success" ? " success" : type === "error" ? " error" : "");
+  toast.textContent = message;
+  container.appendChild(toast);
+
+  window.setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(8px)";
+    window.setTimeout(() => toast.remove(), 250);
+  }, 3600);
+}
+
+function setFontScale(percent) {
+  document.documentElement.style.setProperty("--base-font-scale", percent + "%");
+  const map = {92:"font-btn-sm",100:"font-btn-md",108:"font-btn-lg"};
+  Object.entries(map).forEach(([value,id]) => {
+    const button = byId(id);
+    if (button) button.setAttribute("aria-pressed", Number(value) === percent ? "true" : "false");
+  });
+}
+
+function normaliseRecord(record) {
+  const clean = Object.assign({}, record || {});
+  clean.ID = String(clean.ID || clean.TraineeID || "");
+  clean.FullName = String(clean.FullName || "");
+  clean.TraineeID = String(clean.TraineeID || "");
+  clean.BatchTenure = String(clean.BatchTenure || clean.Batch || "");
+  clean.AssignedSection = String(clean.AssignedSection || "");
+  clean.Qualifications = String(clean.Qualifications || "");
+  clean.Skills = String(clean.Skills || "");
+  clean.Status = String(clean.Status || "Approved");
+  return clean;
+}
+
+function storeCache() {
+  try {
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(allTrainees));
+  } catch (_) {
+    /* Storage may be disabled or unavailable in private browsing. */
+  }
+}
+
+function loadCache() {
+  try {
+    const raw = localStorage.getItem(LOCAL_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return false;
+    allTrainees = parsed.map(normaliseRecord);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+/* ============================================================
+   3. GOOGLE SHEETS SYNCHRONISATION
+   ============================================================ */
+async function syncFromGoogleSheet() {
+  const status = byId("sync-status-indicator");
+
+  if (!CONFIG.SCRIPT_URL) {
+    if (status) status.textContent = "Google Sheets URL not configured";
+    if (!allTrainees.length) allTrainees = FALLBACK_TRAINEES.map(normaliseRecord);
+    refreshDirectoryUI();
+    return;
+  }
+
+  if (status) status.textContent = "Synchronising with Google Sheets…";
+
+  try {
+    const [approvedResponse, pendingResponse] = await Promise.all([
+      fetch(`${CONFIG.SCRIPT_URL}?status=Approved`, { method:"GET", cache:"no-store" }),
+      fetch(`${CONFIG.SCRIPT_URL}?status=Pending`, { method:"GET", cache:"no-store" })
+    ]);
+
+    if (!approvedResponse.ok || !pendingResponse.ok) {
+      throw new Error("The Google Sheets service returned an unsuccessful response.");
+    }
+
+    const [approvedData, pendingData] = await Promise.all([
+      approvedResponse.json(),
+      pendingResponse.json()
+    ]);
+
+    if (!Array.isArray(approvedData) || !Array.isArray(pendingData)) {
+      throw new Error("Unexpected Google Sheets response format.");
+    }
+
+    allTrainees = [...approvedData, ...pendingData].map(normaliseRecord);
+    storeCache();
+
+    if (status) status.textContent = "Google Sheets · Live Sync";
+  } catch (error) {
+    const cacheAvailable = allTrainees.length > 0 || loadCache();
+
+    if (!cacheAvailable) {
+      allTrainees = FALLBACK_TRAINEES.map(normaliseRecord);
+    }
+
+    if (status) status.textContent = "Offline · Cached / Local Dataset";
+    console.warn("Library Portal sync unavailable:", error.message);
+  }
+
+  refreshDirectoryUI();
+}
+
+function refreshDirectoryUI() {
+  updateKPIs();
+  populateBatchDropdown();
+  renderSectionFilters();
+  renderDirectory();
+  if (adminUnlocked) renderAdminQueue();
+}
+
+function updateKPIs() {
+  const approved = allTrainees.filter(t => t.Status === "Approved");
+  const pending = allTrainees.filter(t => t.Status === "Pending");
+  const netCount = approved.filter(t => /\bNET\b/i.test(t.Qualifications || "")).length;
+
+  byId("kpi-total").textContent = approved.length;
+  byId("kpi-net").textContent = netCount;
+  byId("kpi-pending").textContent = pending.length;
+  byId("nav-pending-badge").textContent = pending.length;
+}
+
+function populateBatchDropdown() {
+  const select = byId("batchFilter");
+  if (!select) return;
+
+  const previous = select.value;
+  const batches = [...new Set(
+    allTrainees
+      .filter(t => t.Status === "Approved")
+      .map(t => t.BatchTenure)
+      .filter(Boolean)
+  )].sort();
+
+  select.innerHTML = '<option value="ALL">All Batch Tenures</option>' +
+    batches.map(batch =>
+      `<option value="${escapeHTML(batch)}">${escapeHTML(batch)}</option>`
+    ).join("");
+
+  if (batches.includes(previous)) select.value = previous;
+}
+
+/* ============================================================
+   4. DIRECTORY FILTERS AND RENDERING
+   ============================================================ */
+function renderSectionFilters() {
+  const container = byId("section-filters");
+  if (!container) return;
+
+  const approved = allTrainees.filter(t => t.Status === "Approved");
+
+  container.innerHTML = SECTIONS.map((section,index) => {
+    const count = approved.filter(t => t.AssignedSection === section).length;
+    const checked = selectedSections.has(section) ? "checked" : "";
+    return `
+      <label class="section-filter">
+        <input type="checkbox" value="${escapeHTML(section)}" ${checked}
+          onchange="toggleSectionByIndex(${index},this.checked)">
+        <span>${escapeHTML(section)}</span>
+        <small>${count}</small>
+      </label>`;
+  }).join("");
+}
+
+function toggleSectionByIndex(index, checked) {
+  const section = SECTIONS[index];
+  if (!section) return;
+
+  if (checked) selectedSections.add(section);
+  else selectedSections.delete(section);
+
+  renderDirectory();
+}
+
+function resetFilters() {
+  selectedSections.clear();
+  byId("directorySearch").value = "";
+  byId("batchFilter").value = "ALL";
+  renderSectionFilters();
+  renderDirectory();
+}
+
+function setLayoutMode(mode) {
+  layoutMode = mode === "list" ? "list" : "grid";
+  byId("directory-grid").hidden = layoutMode !== "grid";
+  byId("directory-list").hidden = layoutMode !== "list";
+  byId("layout-grid").setAttribute("aria-pressed", layoutMode === "grid" ? "true" : "false");
+  byId("layout-list").setAttribute("aria-pressed", layoutMode === "list" ? "true" : "false");
+  renderDirectory();
+}
+
+function getFilteredRecords() {
+  const query = byId("directorySearch").value.trim().toLowerCase();
+  const batch = byId("batchFilter").value;
+
+  return allTrainees.filter(t => {
+    if (t.Status !== "Approved") return false;
+
+    if (selectedSections.size && !selectedSections.has(t.AssignedSection)) return false;
+    if (batch !== "ALL" && t.BatchTenure !== batch) return false;
+
+    if (query) {
+      const searchable = [
+        t.FullName,t.TraineeID,t.ID,t.AssignedSection,
+        t.BatchTenure,t.Qualifications,t.Skills,t.University
+      ].join(" ").toLowerCase();
+
+      if (!searchable.includes(query)) return false;
+    }
+    return true;
+  });
+}
+
+function buildCardHTML(t) {
+  const skills = String(t.Skills || "")
+    .split(",").map(s => s.trim()).filter(Boolean).slice(0,6);
+  const links = [
+    ["ORCID",t.Orcid],
+    ["Vidwan",t.Vidwan],
+    ["LinkedIn",t.LinkedIn]
+  ].filter(item => safeURL(item[1]));
+
+  const photo = escapeHTML(photoFor(t));
+  const name = escapeHTML(t.FullName);
+  const id = escapeHTML(t.TraineeID || t.ID);
+  const section = escapeHTML(t.AssignedSection || "Library Trainee");
+  const tenure = escapeHTML(t.BatchTenure || "Not specified");
+  const qualifications = escapeHTML(t.Qualifications || "Not specified");
+
+  return `
+    <article class="trainee-card" tabindex="0" role="button"
+      aria-label="View profile of ${name}"
+      onclick="openDossierById('${escapeHTML(t.ID)}')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDossierById('${escapeHTML(t.ID)}')}">
+      <img class="trainee-photo" src="${photo}" alt="Portrait of ${name}" loading="lazy">
+      <div class="bulletin-strip">
+        <div style="min-width:0">
+          <div class="bulletin-name">${name} <span class="verified" title="Approved profile">✓</span></div>
+          <div class="bulletin-id">${id}</div>
+        </div>
+        <span class="pill pill-blue">${tenure}</span>
+      </div>
+      <div class="trainee-drawer">
+        <h3 class="drawer-name">${name} <span class="verified">✓</span></h3>
+        <p class="drawer-section">${section}</p>
+        <p class="drawer-line"><strong>Batch:</strong> ${tenure}</p>
+        <p class="drawer-line"><strong>Qualification:</strong> ${qualifications}</p>
+        ${skills.length ? `<div class="skill-tags">${skills.map(s => `<span class="skill-tag">${escapeHTML(s)}</span>`).join("")}</div>` : ""}
+        ${links.length ? `<div class="academic-links">${links.map(([label,url]) =>
+          `<a href="${escapeHTML(safeURL(url))}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${label} ↗</a>`
+        ).join("")}</div>` : ""}
+        <button class="btn btn-gold btn-small drawer-action" type="button"
+          onclick="event.stopPropagation();openDossierById('${escapeHTML(t.ID)}')">
+          View Full Dossier →
+        </button>
+      </div>
+    </article>`;
+}
+
+function buildListHTML(t) {
+  return `
+    <article class="list-row" tabindex="0" role="button"
+      onclick="openDossierById('${escapeHTML(t.ID)}')"
+      onkeydown="if(event.key==='Enter'){openDossierById('${escapeHTML(t.ID)}')}">
+      <img src="${escapeHTML(photoFor(t))}" alt="">
+      <div style="min-width:0;flex:1">
+        <h3>${escapeHTML(t.FullName)}</h3>
+        <p>${escapeHTML(t.TraineeID)} · ${escapeHTML(t.BatchTenure)}</p>
+        <p>${escapeHTML(t.AssignedSection)} · ${escapeHTML(t.Qualifications)}</p>
+      </div>
+      <span class="pill pill-blue">Verified ✓</span>
+    </article>`;
+}
+
+function renderDirectory() {
+  const records = getFilteredRecords();
+  byId("directory-count").textContent =
+    `${records.length} approved profile${records.length === 1 ? "" : "s"} shown`;
+
+  byId("directory-grid").innerHTML = records.map(buildCardHTML).join("");
+  byId("directory-list").innerHTML = records.map(buildListHTML).join("");
+
+  byId("directory-empty").hidden = records.length > 0;
+  byId("directory-grid").hidden = records.length === 0 || layoutMode !== "grid";
+  byId("directory-list").hidden = records.length === 0 || layoutMode !== "list";
+}
+
+function scrollToDirectory() {
+  byId("directory-anchor").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+/* ============================================================
+   5. FOUR-SLIDE HERO SHOWCASE
+   ============================================================ */
+function showHeroSlide(index) {
+  const slides = [...document.querySelectorAll(".hero-slide")];
+  const dots = [...document.querySelectorAll(".hero-dot")];
+  if (!slides.length) return;
+
+  heroIndex = (index + slides.length) % slides.length;
+
+  slides.forEach((slide,i) => slide.classList.toggle("active",i === heroIndex));
+  dots.forEach((dot,i) => dot.setAttribute("aria-current",i === heroIndex ? "true" : "false"));
+
+  restartHeroProgress();
+}
+
+function restartHeroProgress() {
+  const bar = byId("hero-progress-fill");
+  if (!bar) return;
+
+  bar.classList.remove("running");
+  bar.style.width = "0%";
+
+  if (heroPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  void bar.offsetWidth;
+  bar.classList.add("running");
+}
+
+function stopHeroTimer() {
+  if (heroTimer) window.clearInterval(heroTimer);
+  heroTimer = null;
+}
+
+function startHeroTimer() {
+  stopHeroTimer();
+  if (heroPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  heroTimer = window.setInterval(() => {
+    showHeroSlide(heroIndex + 1);
+  }, HERO_INTERVAL);
+}
+
+function toggleHeroPause() {
+  heroPaused = !heroPaused;
+  byId("hero-pause").setAttribute("aria-pressed",heroPaused ? "true" : "false");
+  byId("hero-pause").textContent = heroPaused ? "▶ Play" : "Ⅱ Pause";
+
+  if (heroPaused) {
+    stopHeroTimer();
+    const bar = byId("hero-progress-fill");
+    bar.classList.remove("running");
+  } else {
+    startHeroTimer();
+    restartHeroProgress();
+  }
+}
+
+/* ============================================================
+   6. DOSSIER MODAL
+   ============================================================ */
+function openDossierById(id) {
+  const record = allTrainees.find(t => String(t.ID) === String(id));
+  if (record) openDossier(record);
+}
+
+function addDossierField(label,value) {
+  if (!value) return "";
+  return `<div class="dossier-field"><strong>${escapeHTML(label)}</strong><span>${escapeHTML(value)}</span></div>`;
+}
+
+function addDossierLink(label,value) {
+  const url = safeURL(value);
+  if (!url) return "";
+  return `<div class="dossier-field"><strong>${escapeHTML(label)}</strong>
+    <span><a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">Open ${escapeHTML(label)} profile ↗</a></span></div>`;
+}
+
+function openDossier(t) {
+  lastFocusedElement = document.activeElement;
+  const head = byId("dossier-head");
+  const content = byId("dossierContent");
+
+  head.innerHTML = `
+    <div class="dossier-identity">
+      <img src="${escapeHTML(photoFor(t))}" alt="Portrait of ${escapeHTML(t.FullName)}">
+      <div>
+        <span class="eyebrow">Shreenivas Deshpande Library · IIT (BHU)</span>
+        <h2 id="dossier-title">${escapeHTML(t.FullName)}</h2>
+        <p class="muted" style="font-size:.76rem;margin:4px 0 0">
+          ${escapeHTML(t.TraineeID)} · ${escapeHTML(t.BatchTenure)}
+        </p>
+        <span class="pill pill-live" style="margin-top:8px">✓ Approved Profile</span>
+      </div>
+    </div>`;
+
+  content.innerHTML = `
+    <div class="dossier-grid">
+      ${addDossierField("Trainee ID",t.TraineeID)}
+      ${addDossierField("Batch Tenure",t.BatchTenure)}
+      ${addDossierField("Assigned Library Section",t.AssignedSection)}
+      ${addDossierField("Email Address",t.Email)}
+      ${addDossierField("Mobile Number",t.Phone)}
+      ${addDossierField("Hometown / City",t.Hometown)}
+      ${addDossierField("Highest LIS Qualifications",t.Qualifications)}
+      ${addDossierField("University / Institution",t.University)}
+      ${addDossierField("Core LIS & Technical Skills",t.Skills)}
+      ${addDossierField("Prior Experience",t.PriorExp)}
+      ${addDossierField("Key Responsibilities",t.Responsibilities)}
+      ${addDossierLink("ORCID",t.Orcid)}
+      ${addDossierLink("Vidwan",t.Vidwan)}
+      ${addDossierLink("LinkedIn",t.LinkedIn)}
+    </div>
+    <p class="muted" style="font-size:.68rem;margin:15px 0 0">
+      Profile details are displayed as supplied and approved by the Library administration.
+    </p>`;
+
+  byId("dossierModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+  byId("dossierModal").querySelector(".modal-close").focus();
+}
+
+function closeModal() {
+  byId("dossierModal").classList.remove("open");
+  document.body.style.overflow = "";
+  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    lastFocusedElement.focus();
+  }
+}
+
+/* ============================================================
+   7. REGISTRATION WIZARD & PHOTO COMPRESSION
+   ============================================================ */
+function goStep(step) {
+  if (step < 1 || step > 3) return;
+
+  if (step > currentStep) {
+    const currentPanel = byId("wizard-step-" + currentStep);
+    const required = [...currentPanel.querySelectorAll("[required]")];
+
+    for (const field of required) {
+      if (!field.checkValidity()) {
+        field.reportValidity();
+        field.focus();
+        return;
+      }
+    }
+  }
+
+  currentStep = step;
+
+  [1,2,3].forEach(n => {
+    byId("wizard-step-" + n).hidden = n !== step;
+    byId("stepbar-" + n).classList.toggle("active",n <= step);
+  });
+
+  byId("wizard-step-" + step).scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function compressPortrait(file) {
+  return new Promise((resolve,reject) => {
+    if (!file || !file.type.startsWith("image/")) {
+      reject(new Error("Please select a valid image file."));
+      return;
+    }
+
+    if (file.size > 8 * 1024 * 1024) {
+      reject(new Error("Please select an image smaller than 8 MB."));
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onerror = () => reject(new Error("Unable to read the selected image."));
+    reader.onload = () => {
+      const image = new Image();
+
+      image.onerror = () => reject(new Error("The selected image could not be decoded."));
+      image.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 300;
+        canvas.height = 300;
+
+        const context = canvas.getContext("2d");
+        if (!context) {
+          reject(new Error("Canvas image processing is unavailable."));
+          return;
+        }
+
+        const side = Math.min(image.width,image.height);
+        const sx = (image.width - side) / 2;
+        const sy = (image.height - side) / 2;
+
+        context.fillStyle = "#FFFFFF";
+        context.fillRect(0,0,300,300);
+        context.drawImage(image,sx,sy,side,side,0,0,300,300);
+
+        let quality = 0.82;
+        let output = canvas.toDataURL("image/jpeg",quality);
+
+        while (output.length > 33000 && quality > 0.35) {
+          quality -= 0.07;
+          output = canvas.toDataURL("image/jpeg",quality);
+        }
+
+        if (output.length > 50000) {
+          reject(new Error("The compressed photograph is still too large. Please choose a simpler image."));
+          return;
+        }
+
+        resolve(output);
+      };
+
+      image.src = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
+byId("f_photo").addEventListener("change",async event => {
+  const file = event.target.files && event.target.files[0];
+  if (!file) {
+    compressedPhotoDataUrl = "";
+    byId("photo-status").textContent = "No photograph selected. A monogram will be used.";
+    byId("photo-preview").src = generateMonogram("LT");
+    return;
+  }
+
+  byId("photo-status").textContent = "Compressing photograph…";
+
+  try {
+    compressedPhotoDataUrl = await compressPortrait(file);
+    byId("photo-preview").src = compressedPhotoDataUrl;
+    byId("photo-status").textContent =
+      `Image ready · 300 × 300 · ${(compressedPhotoDataUrl.length / 1024).toFixed(1)} KB (approx.)`;
+  } catch (error) {
+    compressedPhotoDataUrl = "";
+    event.target.value = "";
+    byId("photo-preview").src = generateMonogram("LT");
+    byId("photo-status").textContent = error.message;
+    showToast(error.message,"error");
+  }
+});
+
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const form = byId("traineeForm");
+  if (!form.reportValidity()) return;
+
+  if (!byId("f_consent").checked) {
+    showToast("Please confirm the declaration before submitting.","error");
+    return;
+  }
+
+  const button = byId("submitBtn");
+  button.disabled = true;
+  button.textContent = "Submitting…";
+
+  const fullName = byId("f_fullName").value.trim();
+
+  const payload = {
+    ID: "TR-" + Date.now().toString().slice(-8),
+    FullName: fullName,
+    TraineeID: byId("f_traineeId").value.trim(),
+    BatchTenure: byId("f_batchTenure").value.trim(),
+    Batch: byId("f_batchTenure").value.trim(),
+    AssignedSection: byId("f_section").value,
+    Email: byId("f_email").value.trim(),
+    Phone: byId("f_phone").value.trim(),
+    Hometown: byId("f_hometown").value.trim(),
+    Qualifications: byId("f_qualifications").value.trim(),
+    University: byId("f_university").value.trim(),
+    Skills: byId("f_skills").value.trim(),
+    Responsibilities: byId("f_responsibilities").value.trim(),
+    Orcid: byId("f_orcid").value.trim(),
+    Vidwan: byId("f_vidwan").value.trim(),
+    LinkedIn: byId("f_linkedin").value.trim(),
+    PriorExp: byId("f_priorExp").value.trim(),
+    PhotoURL: compressedPhotoDataUrl || generateMonogram(initialsFor(fullName)),
+    Status: "Pending"
+  };
+
+  try {
+    if (!CONFIG.SCRIPT_URL) throw new Error("Google Sheets endpoint is not configured.");
+
+    /*
+     * Retains the Trainees-v4 no-cors POST integration pattern.
+     * A no-cors request does not expose the server response, so a resolved
+     * fetch only means the browser dispatched the request; it does NOT prove
+     * that Apps Script saved the record.
+     */
+    await fetch(CONFIG.SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload)
+    });
+
+    allTrainees.push(payload);
+    storeCache();
+    updateKPIs();
+
+    form.reset();
+    compressedPhotoDataUrl = "";
+    byId("photo-preview").src = generateMonogram("LT");
+    byId("photo-status").textContent = "No photograph selected. A monogram will be used.";
+    goStep(1);
+
+    showToast(
+      "Submission sent. It will appear in the directory only after administrator approval. Verify the Pending queue in Google Sheets.",
+      "success"
+    );
+    switchMode("directory");
+  } catch (error) {
+    showToast("Submission could not be sent: " + error.message,"error");
+  } finally {
+    button.disabled = false;
+    button.textContent = "Submit for Verification";
+  }
+}
+
+/* ============================================================
+   8. ADMIN AUTHENTICATION AND MODERATION
+   ============================================================ */
+function requestAdminAccess() {
+  if (adminUnlocked) {
+    switchMode("admin");
+    return;
+  }
+
+  lastFocusedElement = document.activeElement;
+  byId("adminAuthModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+  byId("adminPassInput").value = "";
+  byId("adminPassInput").focus();
+}
+
+function closeAdminModal() {
+  byId("adminAuthModal").classList.remove("open");
+  document.body.style.overflow = "";
+  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    lastFocusedElement.focus();
+  }
+}
+
+function verifyAdmin(event) {
+  if (event) event.preventDefault();
+
+  const entered = byId("adminPassInput").value;
+
+  if (entered === CONFIG.ADMIN_PASSCODE) {
+    adminUnlocked = true;
+    closeAdminModal();
+    switchMode("admin");
+    renderAdminQueue();
+    showToast("Admin console opened.","success");
+  } else {
+    showToast("Incorrect administrator passcode.","error");
+    byId("adminPassInput").select();
+  }
+}
+
+function lockAdminConsole() {
+  adminUnlocked = false;
+  selectedPendingId = null;
+  switchMode("directory");
+  showToast("Admin console locked.");
+}
+
+function setAdminTab(tab) {
+  adminTab = tab === "Approved" ? "Approved" : "Pending";
+  byId("adm-tab-pending").className =
+    adminTab === "Pending" ? "btn btn-primary btn-small" : "btn btn-outline btn-small";
+  byId("adm-tab-approved").className =
+    adminTab === "Approved" ? "btn btn-primary btn-small" : "btn btn-outline btn-small";
+  selectedPendingId = null;
+  renderAdminQueue();
+}
+
+function renderAdminQueue() {
+  const list = byId("pendingQueueList");
+  const records = allTrainees.filter(t => t.Status === adminTab);
+
+  if (!records.length) {
+    list.innerHTML = `<p class="muted" style="font-size:.78rem">No ${adminTab.toLowerCase()} records are currently available.</p>`;
+    byId("adminPreviewPane").innerHTML =
+      `<p class="muted">There are no records to display in this queue.</p>`;
+    return;
+  }
+
+  list.innerHTML = records.map(t => `
+    <button type="button" class="queue-item ${selectedPendingId === t.ID ? "selected" : ""}"
+      onclick="inspectPending('${escapeHTML(t.ID)}')">
+      <strong>${escapeHTML(t.FullName)}</strong>
+      <span>${escapeHTML(t.TraineeID)} · ${escapeHTML(t.BatchTenure)}</span>
+      <span class="pill ${t.Status === "Approved" ? "status-approved" : "status-pending"}">${escapeHTML(t.Status)}</span>
+    </button>`).join("");
+
+  if (!selectedPendingId || !records.some(t => t.ID === selectedPendingId)) {
+    inspectPending(records[0].ID);
+  }
+}
+
+function inspectPending(id) {
+  selectedPendingId = id;
+  const t = allTrainees.find(item => String(item.ID) === String(id));
+  if (!t) return;
+
+  renderQueueSelection();
+  const pane = byId("adminPreviewPane");
+
+  pane.innerHTML = `
+    <div class="dossier-identity" style="margin-bottom:18px">
+      <img src="${escapeHTML(photoFor(t))}" alt="">
+      <div>
+        <h3 class="drawer-name" style="color:var(--navy-900)">${escapeHTML(t.FullName)}</h3>
+        <p class="muted" style="font-size:.73rem">${escapeHTML(t.TraineeID)} · ${escapeHTML(t.BatchTenure)}</p>
+        <span class="pill ${t.Status === "Approved" ? "status-approved" : "status-pending"}">${escapeHTML(t.Status)}</span>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="field"><label for="edit_fullName">Full Name</label>
+        <input id="edit_fullName" value="${escapeHTML(t.FullName)}"></div>
+      <div class="field"><label for="edit_traineeId">Trainee ID</label>
+        <input id="edit_traineeId" value="${escapeHTML(t.TraineeID)}"></div>
+      <div class="field field-full"><label for="edit_section">Assigned Section</label>
+        <select id="edit_section">${SECTIONS.map(s =>
+          `<option value="${escapeHTML(s)}" ${s === t.AssignedSection ? "selected" : ""}>${escapeHTML(s)}</option>`
+        ).join("")}</select></div>
+      <div class="field field-full"><label for="edit_qualifications">Qualifications</label>
+        <textarea id="edit_qualifications">${escapeHTML(t.Qualifications)}</textarea></div>
+      <div class="field field-full"><label for="edit_skills">Skills</label>
+        <textarea id="edit_skills">${escapeHTML(t.Skills)}</textarea></div>
+    </div>
+
+    <div class="dossier-grid" style="margin-top:15px">
+      ${addDossierField("Email",t.Email)}
+      ${addDossierField("Phone",t.Phone)}
+      ${addDossierField("University",t.University)}
+      ${addDossierField("Prior Experience",t.PriorExp)}
+      ${addDossierField("Responsibilities",t.Responsibilities)}
+      ${addDossierField("Hometown",t.Hometown)}
+    </div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:17px">
+      <button type="button" class="btn btn-outline btn-small" onclick="saveAdminEdits('${escapeHTML(t.ID)}')">Save Local Edits</button>
+      ${t.Status === "Pending" ? `
+        <button type="button" class="btn btn-primary btn-small" onclick="moderateSubmission('${escapeHTML(t.ID)}','approve')">✓ Approve &amp; Publish Live</button>
+        <button type="button" class="btn btn-danger btn-small" onclick="moderateSubmission('${escapeHTML(t.ID)}','reject')">Reject Submission</button>
+      ` : ""}
+    </div>
+    <p class="muted" style="font-size:.67rem;margin-top:12px">
+      Local edits are not written back to Google Sheets by the original Apps Script action contract. Verify the backend record after moderation.
+    </p>`;
+}
+
+function renderQueueSelection() {
+  document.querySelectorAll(".queue-item").forEach(button => {
+    button.classList.toggle("selected",button.textContent.includes(
+      (allTrainees.find(t => t.ID === selectedPendingId) || {}).FullName || "\u0000"
+    ));
+  });
+}
+
+function saveAdminEdits(id) {
+  const t = allTrainees.find(item => String(item.ID) === String(id));
+  if (!t) return;
+
+  t.FullName = byId("edit_fullName").value.trim();
+  t.TraineeID = byId("edit_traineeId").value.trim();
+  t.AssignedSection = byId("edit_section").value;
+  t.Qualifications = byId("edit_qualifications").value.trim();
+  t.Skills = byId("edit_skills").value.trim();
+
+  storeCache();
+  refreshDirectoryUI();
+  selectedPendingId = id;
+  renderAdminQueue();
+  showToast("Edits saved in this browser cache. They have not been written to Google Sheets.","success");
+}
+
+async function moderateSubmission(id,action) {
+  if (!adminUnlocked) {
+    showToast("Admin authentication is required.","error");
+    return;
+  }
+
+  const t = allTrainees.find(item => String(item.ID) === String(id));
+  if (!t) return;
+
+  if (action !== "approve" && action !== "reject") return;
+
+  if (action === "approve") {
+    saveAdminEdits(id);
+  }
+
+  const confirmed = window.confirm(
+    action === "approve"
+      ? "Approve this trainee and publish the profile?"
+      : "Reject and remove this trainee submission?"
+  );
+  if (!confirmed) return;
+
+  try {
+    /*
+     * Preserves the existing Apps Script GET action contract.
+     * no-cors prevents reading the response; the UI therefore marks the
+     * local copy as changed but cannot independently verify backend success.
+     */
+    await fetch(
+      `${CONFIG.SCRIPT_URL}?action=${action}&id=${encodeURIComponent(id)}`,
+      {method:"GET",mode:"no-cors"}
+    );
+
+    if (action === "approve") {
+      t.Status = "Approved";
+    } else {
+      allTrainees = allTrainees.filter(item => String(item.ID) !== String(id));
+    }
+
+    storeCache();
+    selectedPendingId = null;
+    refreshDirectoryUI();
+    renderAdminQueue();
+
+    showToast(
+      action === "approve"
+        ? "Approval request sent. Confirm the published status in Google Sheets."
+        : "Rejection request sent. Confirm the change in Google Sheets.",
+      "success"
+    );
+  } catch (error) {
+    showToast("Moderation request could not be sent: " + error.message,"error");
+  }
+}
+
+/* ============================================================
+   9. CSV EXPORT
+   ============================================================ */
+function exportCSV() {
+  const approved = allTrainees.filter(t => t.Status === "Approved");
+  if (!approved.length) {
+    showToast("There are no approved profiles to export.");
+    return;
+  }
+
+  const headers = [
+    "TraineeID","FullName","BatchTenure","AssignedSection",
+    "Qualifications","Skills","Email","Phone","University",
+    "Orcid","Vidwan","LinkedIn"
+  ];
+
+  const quote = value => `"${String(value == null ? "" : value).replace(/"/g,'""')}"`;
+  const rows = [
+    headers.map(quote).join(","),
+    ...approved.map(record => headers.map(key => quote(record[key])).join(","))
+  ];
+
+  const blob = new Blob(["\uFEFF" + rows.join("\r\n")],{
+    type:"text/csv;charset=utf-8"
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "IIT_BHU_SD_Library_Trainees.csv";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+
+  showToast("Approved directory exported to CSV.","success");
+}
+
+/* ============================================================
+   10. MODE SWITCHER AND URL ROUTING
+   ============================================================ */
+function switchMode(mode) {
+  if (!["directory","submit","admin"].includes(mode)) mode = "directory";
+
+  if (mode === "admin" && !adminUnlocked) {
+    requestAdminAccess();
+    return;
+  }
+
+  ["directory","submit","admin"].forEach(name => {
+    byId("view-" + name).hidden = name !== mode;
+    byId("tab-" + name).classList.toggle("active",name === mode);
+  });
+
+  const labels = {
+    directory:"Trainee Directory",
+    submit:"Trainee Registration",
+    admin:"Administration Console"
+  };
+  byId("breadcrumb-current").textContent = labels[mode];
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("mode",mode);
+  window.history.replaceState({}, "", url.toString());
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function copySubmissionLink() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("mode","submit");
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url.toString())
+      .then(() => showToast("Registration link copied.","success"))
+      .catch(() => showToast("Unable to access clipboard. Copy the URL from the address bar.","error"));
+  } else {
+    window.prompt("Copy this registration link:",url.toString());
+  }
+}
+
+/* ============================================================
+   11. KEYBOARD ACCESSIBILITY AND INITIALISATION
+   ============================================================ */
+function initialiseHero() {
+  byId("hero-prev").addEventListener("click",() => showHeroSlide(heroIndex - 1));
+  byId("hero-next").addEventListener("click",() => showHeroSlide(heroIndex + 1));
+  byId("hero-pause").addEventListener("click",toggleHeroPause);
+
+  document.querySelectorAll(".hero-dot").forEach(dot => {
+    dot.addEventListener("click",() => showHeroSlide(Number(dot.dataset.goSlide)));
+  });
+
+  const hero = byId("hero-showcase");
+  hero.addEventListener("mouseenter",() => {
+    stopHeroTimer();
+    const bar = byId("hero-progress-fill");
+    bar.classList.remove("running");
+  });
+
+  hero.addEventListener("mouseleave",() => {
+    if (!heroPaused) {
+      startHeroTimer();
+      restartHeroProgress();
+    }
+  });
+
+  hero.addEventListener("focusin",stopHeroTimer);
+  hero.addEventListener("focusout",event => {
+    if (!hero.contains(event.relatedTarget) && !heroPaused) {
+      startHeroTimer();
+      restartHeroProgress();
+    }
+  });
+
+  startHeroTimer();
+}
+
+function initialisePortal() {
+  byId("copyright-year").textContent = new Date().getFullYear();
+
+  byId("f_section").innerHTML =
+    '<option value="">Select section</option>' +
+    SECTIONS.map(section =>
+      `<option value="${escapeHTML(section)}">${escapeHTML(section)}</option>`
+    ).join("");
+
+  byId("directorySearch").addEventListener("input",renderDirectory);
+  byId("batchFilter").addEventListener("change",renderDirectory);
+
+  document.addEventListener("keydown",event => {
+    if (event.key === "Escape") {
+      closeModal();
+      closeAdminModal();
+    }
+
+    if (event.key === "Tab" && byId("dossierModal").classList.contains("open")) {
+      const focusable = [...byId("dossierModal").querySelectorAll(
+        'button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled])'
+      )].filter(el => el.offsetParent !== null);
+
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  byId("adminAuthModal").addEventListener("click",event => {
+    if (event.target === byId("adminAuthModal")) closeAdminModal();
+  });
+
+  initialiseHero();
+
+  const params = new URLSearchParams(window.location.search);
+  const requestedMode = params.get("mode");
+
+  if (requestedMode === "submit") {
+    switchMode("submit");
+  } else if (requestedMode === "admin") {
+    requestAdminAccess();
+  } else {
+    switchMode("directory");
+  }
+
+  updateKPIs();
+  populateBatchDropdown();
+  renderSectionFilters();
+  renderDirectory();
+
+  syncFromGoogleSheet();
+}
+
+document.addEventListener("DOMContentLoaded",initialisePortal);
+</script>
+</body>
+</html>
